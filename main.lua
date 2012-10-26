@@ -9,11 +9,14 @@ function love.load()
    myFont=love.graphics.newFont('font/ChronoTrigger.ttf',15)
    myHugeFont=love.graphics.newFont('font/ChronoTrigger.ttf',100)
    love.graphics.setFont(myFont)
+   background=love.graphics.newImage("art/background.png")
+
    mainMessage=message:new()
    mainMessage:load('Hit Space',1)
 end
 
 function love.draw()
+   love.graphics.draw(background,0,0)
    slider.draw()
    mainMessage:draw()
 end

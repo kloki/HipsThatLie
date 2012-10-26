@@ -3,18 +3,21 @@ slider={
    bar=0,
    direction=1,
    widthbar=800,
-   hitregion=0.1,
+   heigthbar=380,
+   hitregion=0.14,
 }
 
 
 function slider.draw()
-   love.graphics.rectangle("line",screenwidth/2-slider.widthbar/2,200,slider.widthbar,40)
-   love.graphics.rectangle("line",screenwidth/2-slider.widthbar/2*slider.hitregion,200,slider.widthbar*slider.hitregion,40)
-   love.graphics.rectangle("fill",screenwidth/2-5+slider.widthbar/2*slider.bar,190,10,60)
-   
    if debug then
       love.graphics.print("Speed: ".. slider.speed,5,5)
       love.graphics.print("Bar  : ".. slider.bar,5,20)
+      love.graphics.rectangle("line",screenwidth/2-slider.widthbar/2,slider.heigthbar,slider.widthbar,40)
+      love.graphics.rectangle("line",screenwidth/2-slider.widthbar/2*slider.hitregion,slider.heigthbar,slider.widthbar*slider.hitregion,40)
+      love.graphics.rectangle("fill",screenwidth/2-5+slider.widthbar/2*slider.bar,slider.heigthbar-10,10,60)
+   
+   
+
    end
 end
 
