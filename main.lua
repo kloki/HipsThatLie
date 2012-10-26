@@ -1,5 +1,6 @@
 require 'slider'
 require 'message'
+require 'waves'
 
 function love.load()
    math.randomseed( os.time() )
@@ -18,11 +19,14 @@ end
 function love.draw()
    love.graphics.draw(background,0,0)
    slider.draw()
+   waves.draw()
    mainMessage:draw()
+
 end
 
 function love.update(dt)
    slider.update(dt)
+   waves.update(dt)
    mainMessage:update(dt)
 end
 
