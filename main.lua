@@ -7,33 +7,41 @@ function love.load()
    screenheight=640
    screenwidth=1024
    debug=false
-   myFont=love.graphics.newFont('font/ChronoTrigger.ttf',15)
-   myHugeFont=love.graphics.newFont('font/ChronoTrigger.ttf',60)
+   myFont=love.graphics.newFont('font/bebas.ttf',15)
+   myHugeFont=love.graphics.newFont('font/bebas.ttf',40)
    love.graphics.setFont(myFont)
    background=love.graphics.newImage("art/background.png")
    logo=love.graphics.newImage("art/stieflogo.png")
-
    mainMessage=message:new()
-   mainMessage:textUpdate('Hit Space',0)
+   pause=false
+   pausecounter=5
+   newGame()
+
 end
 
 function love.draw()
    love.graphics.draw(background,0,0)
    love.graphics.draw(logo,5,screenheight-95)
    love.graphics.setFont(myHugeFont)
-   love.graphics.printf("Zeg ken jij de mossel man?",0,200,1024,"center")
+   love.graphics.printf("Zeg ken jij de mossel man?",0,180,1024,"center")
    love.graphics.setFont(myFont)
    mussels.draw()
    slider.draw()
    waves.draw()
    mainMessage:draw()
 
+
 end
 
 function love.update(dt)
-   slider.update(dt)
-   waves.update(dt)
-   mainMessage:update(dt)
+   if pause then
+      pausecounter=pausecounter-dt
+      if pausecounter<0 then unpause() end
+   else
+      slider.update(dt)
+      waves.update(dt)
+      mainMessage:update(dt)
+   end
 end
 
 
@@ -42,7 +50,9 @@ function love.keypressed(key)
    if key=='escape' then
       love.event.quit()
    elseif key==' ' then
-      slider.hit()
+      if pause==false then
+	 slider.hit()
+      end
    elseif key=='up' then
       slider.speedAdjust(0.1)
    elseif key=='down' then
@@ -60,4 +70,19 @@ function love.quit()
 end
 
 
+function newGame()
+   mainMessage:textUpdate('Hit Space',0)
+   slider.speed=1
+   mussels.count=10
+end
 
+function endGame()
+   mainMessage:textUpdate('Game over',0)
+   pause=true
+   pausecounter=3
+end
+
+function unpause()
+   pause=false
+   newGame()
+end

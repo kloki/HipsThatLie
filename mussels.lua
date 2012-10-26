@@ -17,4 +17,5 @@ end
 
 function mussels.hit()
    mussels.count=mussels.count-1
+   if mussels.count==0 then endGame() end
 end

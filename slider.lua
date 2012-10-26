@@ -12,7 +12,7 @@ slider={
 
 function slider.draw()
    love.graphics.setFont(myHugeFont)
-   love.graphics.print("Score: ".. math.floor(slider.speed*1000-1000),5,5)
+   love.graphics.print("Score: ".. math.floor(slider.speed*1000)-1000,5,5)
    love.graphics.setFont(myFont)
 
    if slider.direction==0 then 
@@ -69,6 +69,5 @@ function slider.speedAdjust(n)
    slider.speed=slider.speed+n
    if slider.speed <0.1 then 
       slider.speed =0.1 
-      mainMessage:textUpdate('Jij bent echt heel slecht',5)
    end
 end
