@@ -43,8 +43,10 @@ end
 
 function message:Mis()
    self:textUpdate("De mosselman?",1)
+   TEsound.play("sounds/mis.wav")
 end
 
 function message:Hit()
    self:textUpdate("Hij woont in Scheveningen!",1)
+   TEsound.play("sounds/hit.wav")
 end

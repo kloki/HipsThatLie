@@ -3,6 +3,7 @@ require 'message'
 require 'waves'
 require 'mussels'
 require 'highscore'
+require 'TEsound'
 function love.load()
    math.randomseed( os.time() )
    screenheight=640
@@ -44,7 +45,9 @@ function love.update(dt)
       waves.update(dt)
       mainMessage:update(dt)
    end
+   TEsound.cleanup()
 end
+
 
 
 function love.keypressed(key)
@@ -73,13 +76,14 @@ end
 
 
 function newGame()
-   mainMessage:textUpdate('Hit Space',0)
+   mainMessage:textUpdate('Sla elkaar',0)
    slider.speed=1
    mussels.count=10
 end
 
 function endGame()
    mainMessage:textUpdate('Game over',0)
+   TEsound.play("sounds/end.wav")
    highscore.update(slider.speed)
    pause=true
    pausecounter=3
