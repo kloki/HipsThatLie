@@ -30,15 +30,15 @@ function message:draw()
 
 end
 
-function message.textUpdate(text,time)
+function message:textUpdate(text,time)
    self.counter=time
    self.text=text
 end
 
-function message.Hit()
-   self.textUpdate("De mosselman?",1)
+function message:Mis()
+   self:textUpdate("De mosselman?",1)
 end
 
-function message.Mis()
-   self.textUpdate("Hij woont in Scheveningen 1",1)
+function message:Hit()
+   self:textUpdate("Hij woont in Scheveningen 1",1)
 end

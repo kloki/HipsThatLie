@@ -8,7 +8,7 @@ function love.load()
    screenwidth=1024
    debug=true
    myFont=love.graphics.newFont('font/ChronoTrigger.ttf',15)
-   myHugeFont=love.graphics.newFont('font/ChronoTrigger.ttf',100)
+   myHugeFont=love.graphics.newFont('font/ChronoTrigger.ttf',80)
    love.graphics.setFont(myFont)
    background=love.graphics.newImage("art/background.png")
 
