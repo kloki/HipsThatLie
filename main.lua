@@ -82,7 +82,7 @@ function newGame()
 end
 
 function endGame()
-   mainMessage:textUpdate('Game over',0)
+   mainMessage:win(slider.speed)
    TEsound.play("sounds/end.wav")
    highscore.update(slider.speed)
    pause=true

@@ -1,7 +1,9 @@
+require 'utils'
 message={
    counter=0,
    text='huh',
    perm=false,
+   winlines=love.filesystem.newFile('text.txt'):read():split("\n"),
 }
 
 
@@ -12,10 +14,6 @@ function message:new (o)
    return o
 end
 
-function message:load(text,time)
-   self.text=text
-   self.counter=time
-end
 
 function message:update(dt)
    self.counter=self.counter-dt
@@ -25,7 +23,7 @@ end
 function message:draw()
    if self.counter > 0 or self.perm then
       love.graphics.setFont(myHugeFont)
-      love.graphics.printf(self.text,0,450,1000,'center')
+      love.graphics.printf(self.text,0,430,1000,'center')
       love.graphics.setFont(myFont)
    end
 
@@ -49,4 +47,9 @@ end
 function message:Hit()
    self:textUpdate("Hij woont in Scheveningen!",1)
    TEsound.play("sounds/hit.wav")
+end
+
+function message:win(score)
+   self:textUpdate(self.winlines[math.random(4)],0)
+   TEsound.play("sounds/end.wav")
 end
