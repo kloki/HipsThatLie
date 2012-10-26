@@ -5,6 +5,8 @@ slider={
    widthbar=800,
    heigthbar=380,
    hitregion=0.14,
+   manL=love.graphics.newImage("art/mosselmanL.png"),
+   manR=love.graphics.newImage("art/mosselmanR.png"),
 }
 
 
@@ -12,6 +14,12 @@ function slider.draw()
    love.graphics.setFont(myHugeFont)
    love.graphics.print("Score: ".. math.floor(slider.speed*1000-1000),5,5)
    love.graphics.setFont(myFont)
+
+   if slider.direction==0 then 
+      love.graphics.draw(slider.manL,screenwidth/2-5+slider.widthbar/2*slider.bar-50,slider.heigthbar-50)
+   else
+      love.graphics.draw(slider.manR,screenwidth/2-5+slider.widthbar/2*slider.bar-50,slider.heigthbar-50)
+   end
    if debug then
       love.graphics.print("Speed: ".. slider.speed,5,85)
       love.graphics.print("Bar  : ".. slider.bar,5,100)
