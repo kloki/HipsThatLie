@@ -2,6 +2,7 @@ require 'slider'
 require 'message'
 require 'waves'
 require 'mussels'
+require 'highscore'
 function love.load()
    math.randomseed( os.time() )
    screenheight=640
@@ -28,6 +29,7 @@ function love.draw()
    mussels.draw()
    slider.draw()
    waves.draw()
+   highscore.draw()
    mainMessage:draw()
 
 
@@ -78,6 +80,7 @@ end
 
 function endGame()
    mainMessage:textUpdate('Game over',0)
+   highscore.update(slider.speed)
    pause=true
    pausecounter=3
 end
