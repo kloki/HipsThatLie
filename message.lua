@@ -1,14 +1,15 @@
 message={
    counter=0,
    text='huh',
+   perm=false,
 }
 
 
 function message:new (o)
-      o = o or {}
-      setmetatable(o, self)
-      self.__index = self
-      return o
+   o = o or {}
+   setmetatable(o, self)
+   self.__index = self
+   return o
 end
 
 function message:load(text,time)
@@ -22,7 +23,7 @@ function message:update(dt)
 end
 
 function message:draw()
-   if self.counter > 0 then
+   if self.counter > 0 or self.perm then
       love.graphics.setFont(myHugeFont)
       love.graphics.printf(self.text,0,450,1000,'center')
       love.graphics.setFont(myFont)
@@ -31,7 +32,12 @@ function message:draw()
 end
 
 function message:textUpdate(text,time)
-   self.counter=time
+   if time==0 then 
+      self.perm=true
+   else
+      self.counter=time
+      self.perm=false
+   end
    self.text=text
 end
 
@@ -40,5 +46,5 @@ function message:Mis()
 end
 
 function message:Hit()
-   self:textUpdate("Hij woont in Scheveningen 1",1)
+   self:textUpdate("Hij woont in Scheveningen!",1)
 end

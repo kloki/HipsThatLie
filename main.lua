@@ -13,7 +13,7 @@ function love.load()
    background=love.graphics.newImage("art/background.png")
 
    mainMessage=message:new()
-   mainMessage:load('Hit Space',1)
+   mainMessage:textUpdate('Hit Space',0)
 end
 
 function love.draw()

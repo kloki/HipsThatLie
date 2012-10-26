@@ -9,9 +9,12 @@ slider={
 
 
 function slider.draw()
+   love.graphics.setFont(myHugeFont)
+   love.graphics.print("Score: ".. math.floor(slider.speed*1000-1000),5,5)
+   love.graphics.setFont(myFont)
    if debug then
-      love.graphics.print("Speed: ".. slider.speed,5,5)
-      love.graphics.print("Bar  : ".. slider.bar,5,20)
+      love.graphics.print("Speed: ".. slider.speed,5,85)
+      love.graphics.print("Bar  : ".. slider.bar,5,100)
       love.graphics.rectangle("line",screenwidth/2-slider.widthbar/2,slider.heigthbar,slider.widthbar,40)
       love.graphics.rectangle("line",screenwidth/2-slider.widthbar/2*slider.hitregion,slider.heigthbar,slider.widthbar*slider.hitregion,40)
       love.graphics.rectangle("fill",screenwidth/2-5+slider.widthbar/2*slider.bar,slider.heigthbar-10,10,60)
