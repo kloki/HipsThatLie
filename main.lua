@@ -13,7 +13,7 @@ function love.load()
    myHugeFont=love.graphics.newFont('font/bebas.ttf',40)
    love.graphics.setFont(myFont)
    background=love.graphics.newImage("art/background.png")
-   logo=love.graphics.newImage("art/stieflogo.png")
+   logo=love.graphics.newImage("art/stieflogowit.png")
    mainMessage=message:new()
    pause=false
    pausecounter=5
@@ -23,7 +23,7 @@ end
 
 function love.draw()
    love.graphics.draw(background,0,0)
-   love.graphics.draw(logo,5,screenheight-95)
+   love.graphics.draw(logo,screenwidth-105,screenheight-95)
    love.graphics.setFont(myHugeFont)
    love.graphics.printf("Zeg ken jij de mossel man?",0,180,1024,"center")
    love.graphics.setFont(myFont)
@@ -83,7 +83,6 @@ end
 
 function endGame()
    mainMessage:win(slider.speed)
-   TEsound.play("sounds/end.wav")
    highscore.update(slider.speed)
    pause=true
    pausecounter=3
