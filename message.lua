@@ -18,6 +18,7 @@ end
 
 function message:update(dt)
    self.counter=self.counter-dt
+
 end
 
 function message:draw()
@@ -27,4 +28,17 @@ function message:draw()
       love.graphics.setFont(myFont)
    end
 
+end
+
+function message.textUpdate(text,time)
+   self.counter=time
+   self.text=text
+end
+
+function message.Hit()
+   self.textUpdate("De mosselman?",1)
+end
+
+function message.Mis()
+   self.textUpdate("Hij woont in Scheveningen 1",1)
 end

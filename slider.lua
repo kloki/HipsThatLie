@@ -43,12 +43,10 @@ end
 
 function slider.hit()
    if math.abs(slider.bar)<slider.hitregion then
-      mainMessage=message:new()
-      mainMessage:load('Harder !!!',1)
+      mainMessage:Hit()
       slider.speedAdjust(0.2)
    else 
-      mainMessage=message:new()
-      mainMessage:load('Mis',1)
+      mainMessage:Mis()
       slider.speedAdjust(-0.1)
       mussels.hit()
    end
@@ -60,7 +58,6 @@ function slider.speedAdjust(n)
    slider.speed=slider.speed+n
    if slider.speed <0.1 then 
       slider.speed =0.1 
-      mainMessage=message:new()
-      mainMessage:load('Jij bent echt heel slecht',5)
+      mainMessage:textUpdate('Jij bent echt heel slecht',5)
    end
 end
