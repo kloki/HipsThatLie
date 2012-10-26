@@ -12,8 +12,9 @@ slider={
 
 function slider.draw()
    love.graphics.setFont(myHugeFont)
-   love.graphics.print("Score: ".. math.floor(slider.speed*1000)-1000,5,5)
+   love.graphics.print("Snelheid: ".. slider.speed*10,5,5)
    love.graphics.setFont(myFont)
+   love.graphics.print("knopen",210,30)
 
    if slider.direction==0 then 
       love.graphics.draw(slider.manL,screenwidth/2-5+slider.widthbar/2*slider.bar-50,slider.heigthbar-50)

@@ -8,9 +8,14 @@ mussels={
 
 function mussels.draw()
    mussels.x=5
-   mussels.y=75
+   mussels.y=70
    for i=1,mussels.count do
       love.graphics.draw(mussels.mussel,mussels.x,mussels.y)
+      if i==5 then
+	 mussels.y=mussels.y+22
+	 mussels.x=-27
+      end
+
       mussels.x=mussels.x+32	
    end
 end
