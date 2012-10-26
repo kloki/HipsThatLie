@@ -32,5 +32,5 @@ function waves.update(dt)
    if waves.counter>2 then
       waves.counter=0
       if waves.direction==1 then waves.direction=0 else waves.direction=1 end
-   end 
+   end
 end

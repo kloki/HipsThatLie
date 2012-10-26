@@ -1,7 +1,7 @@
 require 'slider'
 require 'message'
 require 'waves'
-
+require 'mussels'
 function love.load()
    math.randomseed( os.time() )
    screenheight=640
@@ -18,6 +18,7 @@ end
 
 function love.draw()
    love.graphics.draw(background,0,0)
+   mussels.draw()
    slider.draw()
    waves.draw()
    mainMessage:draw()

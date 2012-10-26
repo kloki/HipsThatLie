@@ -49,7 +49,8 @@ function slider.hit()
    else 
       mainMessage=message:new()
       mainMessage:load('Mis',1)
-      slider.speedAdjust(-0.1)      
+      slider.speedAdjust(-0.1)
+      mussels.hit()
    end
    
 
