@@ -50,6 +50,14 @@ function message:Hit()
 end
 
 function message:win(score)
-   self:textUpdate(self.winlines[math.random(4)],0)
+   if score < 0.9 then self:textUpdate(self.winlines[1],0)
+   elseif score < 1.8 then self:textUpdate(self.winlines[2],0)
+   elseif score < 2.7 then self:textUpdate(self.winlines[3],0)
+   elseif score < 3.6 then self:textUpdate(self.winlines[4],0)
+   elseif score < 4.5 then self:textUpdate(self.winlines[5],0)
+   elseif score < 5.3 then self:textUpdate(self.winlines[6],0)
+   else self:textUpdate(self.winlines[7],0)
+   end
+
    TEsound.play("sounds/end.wav")
 end
