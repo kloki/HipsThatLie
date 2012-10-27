@@ -4,6 +4,7 @@ require 'waves'
 require 'mussels'
 require 'highscore'
 require 'TEsound'
+require 'animator'
 function love.load()
    math.randomseed( os.time() )
    screenheight=640
@@ -19,7 +20,9 @@ function love.load()
    pausecounter=5
    newGame()
    
-
+   --easter egg egg
+   easter=false
+   NnR=newAnimation(love.graphics.newImage("art/nuraroanne.png"),211,297,0.2,0)
 end
 
 function love.draw()
@@ -34,6 +37,10 @@ function love.draw()
    highscore.draw()
    mainMessage:draw()
 
+   if easter then
+      NnR:draw(10,300)
+      love.graphics.print("Simpel, maar effectief!",120,300)
+   end
 
 end
 
@@ -45,6 +52,7 @@ function love.update(dt)
       slider.update(dt)
       waves.update(dt)
       mainMessage:update(dt)
+      NnR:update(dt)
    end
    TEsound.cleanup()
 end
@@ -83,6 +91,7 @@ function newGame()
 end
 
 function endGame()
+   easter=false
    mainMessage:win(slider.speed)
    highscore.update(slider.speed)
    pause=true

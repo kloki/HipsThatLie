@@ -7,6 +7,7 @@ slider={
    hitregion=0.14,
    manL=love.graphics.newImage("art/mosselmanL.png"),
    manR=love.graphics.newImage("art/mosselmanR.png"),
+   eastercount=0
 }
 
 
@@ -48,7 +49,7 @@ function slider.update(dt)
 	 slider.direction=1
       end
    end
-
+   slider.eastercount=slider.eastercount+dt
       
 end
 
@@ -57,9 +58,11 @@ function slider.hit()
    if math.abs(slider.bar)<slider.hitregion then
       mainMessage:Hit()
       slider.speedAdjust(0.2)
+      if slider.eastercount<0.2 then easter=true end
+      slider.eastercount=0
    else 
       mainMessage:Mis()
-      slider.speedAdjust(-0.1)
+      if easter==false then slider.speedAdjust(-0.1) end
       mussels.hit()
    end
    
