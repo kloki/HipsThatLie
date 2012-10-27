@@ -50,13 +50,15 @@ function message:Hit()
 end
 
 function message:win(score)
-   if score < 0.9 then self:textUpdate(self.winlines[1],0)
-   elseif score < 1.8 then self:textUpdate(self.winlines[2],0)
-   elseif score < 2.7 then self:textUpdate(self.winlines[3],0)
-   elseif score < 3.6 then self:textUpdate(self.winlines[4],0)
-   elseif score < 4.5 then self:textUpdate(self.winlines[5],0)
-   elseif score < 5.3 then self:textUpdate(self.winlines[6],0)
-   else self:textUpdate(self.winlines[7],0)
+   --hack split doesnt work properly
+   local lines = deepcopy(self.winlines)
+   table.remove(lines,#self.winlines)
+   for i=1,#lines do
+      print(lines[i])
+      print((5.5/#lines)*i)
+      if score < (5.5/(#lines))*i or i==#lines then
+	 self:textUpdate(lines[i],0)
+      end
    end
 
    TEsound.play("sounds/end.wav")

@@ -18,6 +18,7 @@ function love.load()
    pause=false
    pausecounter=5
    newGame()
+   
 
 end
 
