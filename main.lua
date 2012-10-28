@@ -67,10 +67,12 @@ function love.keypressed(key)
       if pause==false then
 	 slider.hit()
       end
-   elseif key=='up' then
-      slider.speedAdjust(0.1)
-   elseif key=='down' then
-      slider.speedAdjust(-0.1)
+   elseif key=='f' then
+      love.graphics.toggleFullscreen()
+   -- elseif key=='up' then
+   --    slider.speedAdjust(0.1)
+   -- elseif key=='down' then
+   --    slider.speedAdjust(-0.1)
    elseif key=='d' then
       if debug then debug=false else debug=true end
    end

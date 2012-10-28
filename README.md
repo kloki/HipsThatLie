@@ -31,7 +31,9 @@ De Mosselman wordt gespeeld door twee spelers. Door middel van aanraking wordt a
 
 Controls
 ========
-Press Space
+Space: play the game
+Escape: Quit game
+f:Toggle fullscreen
 
 Requirements
 ============
